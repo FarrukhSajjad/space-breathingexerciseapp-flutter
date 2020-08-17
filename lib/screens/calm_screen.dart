@@ -5,19 +5,45 @@ import 'package:in_app_review/in_app_review.dart';
 import 'package:space/data/calm_data.dart';
 import 'package:space/dummy.dart';
 
+import '../admob_services.dart';
 import '../constant.dart';
 
-class CalmScreen extends StatelessWidget {
+class CalmScreen extends StatefulWidget {
   final String instruction;
 
   CalmScreen({
     this.instruction,
   });
 
+  @override
+  _CalmScreenState createState() => _CalmScreenState();
+}
+
+class _CalmScreenState extends State<CalmScreen> {
   final InAppReview _inAppReview = InAppReview.instance;
+
   String _appStoreId = 'com.rookis.space';
+
   Future<void> _openStoreListing() =>
       _inAppReview.openStoreListing(appStoreId: _appStoreId);
+  final ams1 = AdmobServices();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    ams1.hideBanner();
+    super.initState();
+    ams1.hideBanner();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    ams1.showBanner();
+  }
+
   @override
   Widget build(BuildContext context) {
     final routeArgs =

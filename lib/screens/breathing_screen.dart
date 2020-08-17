@@ -2,22 +2,49 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:space/admob_services.dart';
 import 'package:space/data/breathing_data.dart';
 import 'package:space/dummy.dart';
 
 import '../constant.dart';
 
-class BreathingScreen extends StatelessWidget {
+class BreathingScreen extends StatefulWidget {
   final String instruction;
 
   BreathingScreen({
     this.instruction,
   });
 
+  @override
+  _BreathingScreenState createState() => _BreathingScreenState();
+}
+
+class _BreathingScreenState extends State<BreathingScreen> {
   final InAppReview _inAppReview = InAppReview.instance;
+
   final String _appStoreId = 'com.rookis.space';
+
   Future<void> _openStoreListing() =>
       _inAppReview.openStoreListing(appStoreId: _appStoreId);
+
+  final ams1 = AdmobServices();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    ams1.hideBanner();
+    super.initState();
+    ams1.hideBanner();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    ams1.showBanner();
+  }
+
   @override
   Widget build(BuildContext context) {
     final routeArgs =

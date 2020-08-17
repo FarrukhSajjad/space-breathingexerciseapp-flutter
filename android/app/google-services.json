@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "715929890939",
+    "firebase_url": "https://space-5ca75.firebaseio.com",
+    "project_id": "space-5ca75",
+    "storage_bucket": "space-5ca75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715929890939:android:b56a2cb06bcc8e4221b2de",
+        "android_client_info": {
+          "package_name": "com.rookis.space"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715929890939-t0sdkpha1cqgqq2408u0v03ff6il3uai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7tmA4mnh2NOW8VLyuGii-zntDZfqtMfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715929890939-t0sdkpha1cqgqq2408u0v03ff6il3uai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

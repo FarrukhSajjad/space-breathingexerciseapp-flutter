@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:space/admob_services.dart';
 
 class BreathingExerciseType extends StatelessWidget {
   final String name;
@@ -16,7 +17,7 @@ class BreathingExerciseType extends StatelessWidget {
           'image': image,
           'time': time,
           'indexX': index
-        });
+        }).then((value) => AdmobServices().hideBanner());
       },
       child: Container(
         margin: EdgeInsets.only(right: 25),

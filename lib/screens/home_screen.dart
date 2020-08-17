@@ -1,21 +1,66 @@
+import 'package:admob_flutter/admob_flutter.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:space/admob_services.dart';
 import 'package:space/constant.dart';
 import 'package:space/data/breathing_data.dart';
 import 'package:space/data/calm_data.dart';
 import 'package:space/widgets/breathing_exrcise_type.dart';
 import 'package:space/widgets/calm_type.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   goBack(BuildContext context) {
     Navigator.pop(context);
   }
 
   final InAppReview _inAppReview = InAppReview.instance;
+
   final String _appStoreId = 'com.rookis.space';
+
   Future<void> _openStoreListing() =>
       _inAppReview.openStoreListing(appStoreId: _appStoreId);
+
+  final ams = AdmobServices();
+
+  BannerAd bannerAd;
+  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+    keywords: <String>['foo', 'bar'],
+    contentUrl: 'http://foo.com/bar.html',
+    childDirected: true,
+    nonPersonalizedAds: true,
+  );
+
+  BannerAd createBannerAd() {
+    return BannerAd(
+      adUnitId: BannerAd.testAdUnitId,
+      size: AdSize.fullBanner,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("BannerAd event $event");
+      },
+    );
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    ams.showBanner();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    ams.hideBanner();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +163,10 @@ class HomeScreen extends StatelessWidget {
                               .toList(),
                         ),
                       ),
+                    ),
+                    AdmobBanner(
+                      adSize: AdmobBannerSize.FULL_BANNER,
+                      adUnitId: ams.getBannerAdID(),
                     ),
                   ],
                 ),
