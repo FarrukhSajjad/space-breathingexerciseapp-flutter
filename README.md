@@ -1,6 +1,6 @@
 # space
 
-A new Flutter application.
+Space is a breathing exercise app for relaxing and getting into mood in short time.
 
 ## Getting Started
 
