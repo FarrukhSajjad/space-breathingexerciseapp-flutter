@@ -1,10 +1,14 @@
 # space
 
 Space is a breathing exercise app for relaxing and getting into mood in short time.
+Built in flutter.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project covers listviews, Navigators and use of custom packages in flutter.
+
+Major building blocks of SPACE are:
+Listviews, google fonts, inAppRatings, AssetImages and passing data through Navigators in flutter.
 
 A few resources to get you started if this is your first Flutter project:
 
