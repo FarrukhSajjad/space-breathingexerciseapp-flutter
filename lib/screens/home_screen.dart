@@ -116,25 +116,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    SizedBox(
+                    Container(
                       height: MediaQuery.of(context).size.height / 2.8,
-                      child:
-                          NotificationListener<OverscrollIndicatorNotification>(
-                        onNotification: (overscroll) {
-                          overscroll.disallowGlow();
-                        },
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: BREATHINGDATA
-                              .map((e) => BreathingExerciseType(
-                                    image: e.image,
-                                    name: e.name,
-                                    time: e.duration,
-                                    index: e.index,
-                                  ))
-                              .toList(),
-                        ),
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: BREATHINGDATA
+                            .map((e) => BreathingExerciseType(
+                                  image: e.image,
+                                  name: e.name,
+                                  time: e.duration,
+                                  index: e.index,
+                                ))
+                            .toList(),
                       ),
+                    ),
+                    SizedBox(
+                      height: 15,
                     ),
                     Text(
                       'Calm you Thoughts',
@@ -163,10 +160,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               .toList(),
                         ),
                       ),
-                    ),
-                    AdmobBanner(
-                      adSize: AdmobBannerSize.FULL_BANNER,
-                      adUnitId: ams.getBannerAdID(),
                     ),
                   ],
                 ),

@@ -15,8 +15,10 @@ class CalmType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ams = AdmobServices();
     return GestureDetector(
       onTap: () {
+        ams.showInterAd();
         Navigator.of(context).pushNamed('/getcalm-screen', arguments: {
           'name': name,
           'image': image,
@@ -25,6 +27,7 @@ class CalmType extends StatelessWidget {
         }).then((value) => AdmobServices().hideBanner());
       },
       child: Container(
+        //height: MediaQuery.of(context).size.height / 2.5,
         margin: EdgeInsets.only(right: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

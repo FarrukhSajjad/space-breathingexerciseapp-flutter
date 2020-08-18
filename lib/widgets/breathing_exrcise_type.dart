@@ -10,8 +10,10 @@ class BreathingExerciseType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ams = AdmobServices();
     return GestureDetector(
       onTap: () {
+        ams.showInterAd();
         Navigator.of(context).pushNamed('/breathing-screen', arguments: {
           'name': name,
           'image': image,
@@ -21,31 +23,36 @@ class BreathingExerciseType extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.only(right: 25),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Container(
-                height: 240,
-                width: 220,
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.fill,
+        child: Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  height: 240,
+                  width: 220,
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-            ),
-            Text(
-              name,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-            ),
-            Text(
-              '$time minutes',
-              style: TextStyle(
-                fontSize: 20,
+              Text(
+                name,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
-            ),
-          ],
+              Text(
+                '$time minutes',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
         ),
       ),
     );

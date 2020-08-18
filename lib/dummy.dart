@@ -13,7 +13,7 @@ class CalmSchedule extends StatelessWidget {
         width: MediaQuery.of(context).size.width / 1.2,
         child: Text(
           '$instruction',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontSize: 15),
         ),
       ),
     );
